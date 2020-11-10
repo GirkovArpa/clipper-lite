@@ -153,18 +153,19 @@ a.settings:active {
 }
 
 div.list-container {
-  width: *;
+  size: *;
+  overflow-y: scroll-indicator;
 }
 
 ul {
   margin: 15dip;
   border-radius: 2dip;
-  overflow: hidden;
+  overflow-y: scroll-indicator;
   position: relative;
   padding-left: -1em;
   list-style-type: none;
   padding-bottom: 7.5dip;
-  height: min-content;
+  height: *;
 }
 
 li {
@@ -272,6 +273,7 @@ div.settings {
 }
 
 html {
+  overflow: hidden;
   vertical-scrollbar: scrollbar-style;
   background: black;
 }
