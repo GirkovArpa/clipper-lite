@@ -1,0 +1,50 @@
+<html window-frame="solid">
+
+  <head>
+    <title>Clipper</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="script.tis"></script>
+    <script src="window.tis"></script>
+  </head>
+
+  <body>
+    <div .filter></div>
+    <div class="title-bar">
+      <!--<span class="title">Clipper &#x1F4CB;</span>-->
+      <div .filler> </div>
+      <button role="window-minimize" class="material-icons">remove</button>
+      <button role="window-close" class="material-icons">clear</button>
+    </div>
+    <div class="first-row">
+      <span class="storage-limit">Storage Limit: <b>&nbsp;0 / 10</b></span>
+      <a href="" class="pseudo-button clear">CLEAR<span class="material-icons delete_forever">delete_forever</span></a>
+      <a href="" class="pseudo-button settings"><span class="material-icons">settings</span></a>
+    </div>
+    <div class="list-container">
+      <img src="no_data.svg">
+      <ul>
+      </ul>
+      <div .footer><span>&copy; 2020 &bull; Clipper</span><span>With &#128150; Girkov Arpa</span></div>
+    </div>
+    <div .popup></div>
+    <div .settings>
+      <span .settings-title>Settings</span>
+      <br>
+      <span .controls>
+        <span>Enable Audio</span>
+        <toggle(audio) checked />
+      </span>
+      <br>
+      <span .controls>
+        <span>Capture Clipboard</span>
+        <toggle(clipboard) checked />
+      </span>
+      <br>
+      <hr>
+      <span .note><b>Note:</b> You can save text of maximum 500 characters only. This application uses <a #sciter href="https://sciter.com">Sciter Engine</a>, &copy; Terra Informatica Software, Inc. and is based on the original <a #clipper href="https://github.com/AkashRajpurohit/clipper">Clipper</a> &copy; Akash Rajpurohit.</span>
+      <div> </div>
+      <span .close-settings><div .filler> </div><a href="" class="pseudo-button close">CLOSE</a></span>
+    </div>
+  </body>
+
+</html>

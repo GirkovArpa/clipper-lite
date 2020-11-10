@@ -1,0 +1,345 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('material-fonts.ttf');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18dip;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(231, 230, 230);
+}
+
+div.filter {
+  visibility: none;
+  left: 0;
+  top: 0;
+  background: black;
+  opacity: 0.5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 200ms;
+}
+
+div.title-bar {
+  position: relative;
+  background-color: #4e342e;
+  flow: horizontal;
+  box-shadow: 0 2dip 2dip 0 rgba(0, 0, 0, 0.2), 0 3dip 1dip 0dip rgba(0, 0, 0, 0.12), 0 0dip 50dip 0 rgba(0, 0, 0, 0.2);
+}
+
+text.title {
+  color: white;
+  font-size: 32dip;
+  line-height: 56dip;
+  text-align: center;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: normal;
+  width: *;
+}
+
+.filler {
+  width: *;
+}
+
+button.material-icons {
+  border: none;
+  color: white;
+  display: block;
+  background: transparent;
+  font-size: 24dip;
+  width: 56dip;
+  height: 56dip;
+  line-height: 56dip;
+  transition: background-color 250ms;
+}
+
+button.material-icons:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+div.first-row {
+  display: inline-block;
+  flow: horizontal;
+  vertical-align: middle;
+  justify-content: space-around;
+  margin: 15dip;
+}
+
+span.storage-limit {
+  color: #353535;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16dip;
+  font-weight: 400;
+  line-height: 1.3;
+  width: *;
+  margin-left: 15dip;
+  margin-right: 15dip;
+}
+
+a.pseudo-button {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 14dip;
+  color: white;
+  text-decoration: none;
+  margin-top: -2dip;
+  margin-left: 15dip;
+  margin-right: 15dip;
+  border: none;
+  border-radius: 2dip;
+  display: inline-block;
+  height: 36dip;
+  line-height: 36dip;
+  padding: 0 16dip;
+  text-transform: uppercase;
+  vertical-align: middle;
+  box-shadow: 0 2dip 2dip 0 rgba(0, 0, 0, 0.14), 0 3dip 1dip 0dip rgba(0, 0, 0, 0.12), 0 1dip 5dip 0 rgba(0, 0, 0, 0.2);
+  transition: box-shadow 250ms;
+}
+
+a span.delete_forever {
+  float: right;
+  margin-left: 15dip;
+}
+
+a.pseudo-button span {
+  line-height: inherit;
+}
+
+a.pseudo-button:hover {
+  box-shadow: 0 3dip 3dip 0 rgba(0, 0, 0, 0.14), 0 1dip 7dip 0 rgba(0, 0, 0, 0.12), 0 3dip 1dip 0dip rgba(0, 0, 0, 0.2);
+}
+
+a.clear {
+  background-color: #B71C1C;
+  transition: background-color 250ms;
+}
+
+a.clear:active {
+  background-color: #D97D7D;
+}
+
+a.settings {
+  background-color: #26A69A;
+  transition: background-color 250ms;
+}
+
+a.settings:hover {
+  background-color: #3CBBAC;
+}
+
+a.settings:active {
+  background-color: #acece6;
+}
+
+div.list-container {
+  width: *;
+}
+
+ul {
+  margin: 15dip;
+  border-radius: 2dip;
+  overflow: hidden;
+  position: relative;
+  padding-left: -1em;
+  list-style-type: none;
+  padding-bottom: 7.5dip;
+  height: min-content;
+}
+
+li {
+  width: 100%;
+  padding: 10dip 20dip;
+  margin-top: 7.5dip;
+  margin-bottom: 7.5dip;
+  transition: box-shadow 250ms;
+}
+
+li.trashcan {
+  flow: horizontal;
+}
+
+li.item {
+  background: white;
+  cursor: pointer;
+}
+
+li.item:hover {
+  box-shadow: 0 8dip 17dip 0 rgba(0, 0, 0, 0.2), 0 6dip 20dip 0 rgba(0, 0, 0, 0.19);
+}
+
+span.clipboard-content {
+  color: #5a5a5a !important;
+  font-family: "Helvetica Neue", sans-serif;
+  line-height: 15dip;
+  margin: 7.5dip;
+}
+
+span.trashcan-button {
+  width: *;
+  padding-right: 30dip;
+  text-align: right;
+  color: #C62828;
+  line-height: 15dip;
+  margin: 0;
+  font-size: 27dip;
+  cursor: pointer;
+}
+
+div.footer {
+  margin: 15dip;
+  flow: horizontal;
+  border-spacing: *;
+}
+
+img {
+  height: 200dip;
+  width: 200dip;
+  margin-left: *;
+  margin-right: *;
+  margin-top: 15dip;
+}
+
+div.popup {
+  color: white;
+  background: #323232;
+  width: *;
+  height: 49dip;
+  line-height: 49dip;
+  vertical-align: middle;
+  text-align: center;
+  font-family: "Helvetica Neue", sans-serif;
+  position: absolute;
+  bottom: -49dip;
+  transition: bottom cubic-out 0.5s, opacity linear 0.5s;
+}
+
+div.settings {
+  color: #202020;
+  background: white;
+}
+
+@set scrollbar-style {
+  .prev {
+    display: none;
+  }
+  .next {
+    display: none;
+  }
+  .base, .next-page, .prev-page {
+    background: #EBEBEB;
+    border-left: 1dip solid #DDDDDD;
+  }
+  .slider {
+    background: #4DB6AC;
+  }
+  .base:disabled {
+    background: #4DB6AC;
+  }
+  .slider:hover {
+    background: #4DB6AC;
+    border-left: 1px solid #4DB6AC;
+  }
+  .slider:active {
+    background: #4DB6AC;
+  }
+  .base {
+    width: 7dip;
+  }
+  .corner {
+    background: transparent;
+  }
+}
+
+html {
+  vertical-scrollbar: scrollbar-style;
+  background: black;
+}
+
+@import url(toggle.css);
+div.settings {
+  z-index: 100;
+  width: *;
+  background: white;
+  padding: 15dip;
+  bottom: -244dip;
+  position: absolute;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 15dip;
+  height: 224dip;
+  overflow-y: scroll;
+  color: #353535;
+  transition: bottom linear 100ms;
+}
+
+span.settings-title {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 30dip;
+  margin-bottom: 28dip;
+}
+
+span.controls {
+  width: *;
+}
+
+span.controls, span.controls>span, toggle {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+span.controls>span, hr {
+  margin-right: 15dip;
+}
+
+span.controls>span, hr {
+  margin-top: 14dip;
+  margin-bottom: 14dip;
+}
+
+span.controls>div {
+  margin-bottom: 60dip;
+}
+
+span.close-settings {
+  flow: horizontal;
+}
+
+a.close {
+  color: #353535;
+  background-color: transparent;
+  transition: background-color 250ms;
+  box-shadow: none;
+}
+
+a.close:hover {
+  box-shadow: none;
+}
+
+a.close:active {
+  background-color: #92C190;
+  box-shadow: none;
+}
+
+a.close:focus:not(:active) {
+  background-color: #E1E1E1;
+}

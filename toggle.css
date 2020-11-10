@@ -1,0 +1,63 @@
+/*
+
+  Yet another <toggle> implementation.
+  Based on ::marker  
+
+*/
+
+@set std-toggle {
+  :root {
+    display: inline-block;
+    behavior: check;
+    flow: stack;
+    border: none;
+    background: none;
+    width: max-content;
+    height: 1.4em;
+    padding: 0 0 0 38dip;
+    cursor: pointer;
+  }
+  :root[type="radio"] {
+    behavior: radio;
+  }
+  :root::marker {
+    width: 32dip;
+    height: 15dip;
+    background: #9B9B9B;
+    border-radius: 7dip;
+    margin: * * * 3dip;
+    foreground-image: url(stock:disk);
+    foreground-repeat: no-repeat;
+    foreground-position: 1dip 50%;
+    foreground-size: 2dip;
+    fill: white;
+    stroke: #F1F1F1;
+    stroke-width: 13dip;
+    transition: foreground-position circ-in-out 100ms, background-color linear 100ms;
+  }
+  :root:checked::marker {
+    foreground-position: 28dip 50%;
+    background: #84C7C1;
+    fill: #26A69A;
+    stroke: #26A69A;
+  }
+  :root>option {
+    text-align: start;
+  }
+  :root>option:first-child {
+    visibility: visible;
+  }
+  :root>option:last-child {
+    visibility: hidden;
+  }
+  :root:checked>option:first-child {
+    visibility: hidden;
+  }
+  :root:checked>option:last-child {
+    visibility: visible;
+  }
+}
+
+toggle, button[type="toggle"] {
+  style-set: std-toggle;
+}

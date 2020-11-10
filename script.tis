@@ -1,0 +1,183 @@
+view.connectToInspector && view.connectToInspector(rootElement, inspectorIpAddress);
+
+$(.title-bar).paintOutline = function (gfx) {
+  const emoji = String.fromCharCode(128203);
+  const text = new Graphics.Text(String.$(Clipper {emoji})); 
+  text.class = "title";
+  // 5 == center
+  gfx.drawText(text, 400 / 2, 56 / 2, 5);
+}
+
+const history = [];
+const storageLimit = 10;
+const maxCharsThatCanBeCopied = 500;
+var lastCopiedText = "";
+var canShowPopup = true;
+var shouldShowPopup = true;
+
+var audioEnabled = true;
+var clipboardEnabled = true;
+
+var currentSound = false; 
+
+function playSound(sound) {
+  if (!audioEnabled) return;
+  if (currentSound != false) return;
+  currentSound = view.audio(sound);
+  currentSound.play();
+  view.root.timer(500ms, function() {
+    currentSound = false;
+  });
+}
+
+function updateStorageText() {
+  const length = $$(li).length > 0 ? $$(li).length / 2 : 0;
+  $(.storage-limit).html = String.$(Storage Limit: <b>{length} / {storageLimit}</b>);
+  $(img).style#visibility = length ? "none" : "visible";
+  shouldShowPopup = true;
+}
+
+function showStorageExceededPopup(text) {
+  if (!canShowPopup) return;
+  if (!shouldShowPopup) return;
+  canShowPopup = false;
+  shouldShowPopup = false;
+  const popup = $(div.popup);
+  popup.text = text;
+  playSound("error.mp3");
+  popup.style.set { bottom: 0 };
+  view.root.timer(2000ms, function() {
+    popup.style.set { opacity: 0 };
+    view.root.timer(750ms, function() {
+      popup.style.set { 
+        transition: "none", 
+        bottom: dip(-49), 
+        opacity: 1 
+      };
+      popup.style.set {
+        transition: "bottom cubic-out 0.5s, opacity linear 0.5s;"
+      };
+      canShowPopup = true;
+    });
+  });
+}
+
+$(a.pseudo-button.settings) << event click {
+  $(div.settings).style.set { 
+    transition: "bottom linear 100ms",
+    bottom: 0 
+  };
+  $(div.filter).style#visibility = "visible";
+  $(div.filter).style.set { opacity: 0.5 };
+};
+
+function hideSettings() {
+  $(div.settings).style.set { 
+    transition: "bottom linear 50ms",
+    bottom: dip(-224); 
+  };
+  $(div.filter).style.set { opacity: 0 };
+  view.root.timer(200ms, function() {
+    $(div.filter).style#visibility = "none";
+  });
+}
+
+$(a.pseudo-button.close) << event click {
+  hideSettings();
+};
+
+$(div.filter) << event click {
+  hideSettings();
+};
+
+view.root.timer(500ms, function() {
+  if (!clipboardEnabled) return true;
+  const contents = view.clipboard(#get, #text);
+  if (contents == null) return true;
+
+  const string = contents.trim();
+
+  if (lastCopiedText == string) return true;
+
+  if (string == "") return true;
+
+  const length = $$(li).length > 0 ? $$(li).length / 2 : 0;
+  if (history.indexOf(string) == -1 && length == storageLimit) {
+    showStorageExceededPopup("Your storage limit is exceeded!");
+    return true;
+  }
+
+  if (string.length > maxCharsThatCanBeCopied) {
+    showStorageExceededPopup(String.$(Cannot copy text of characters more than {maxCharsThatCanBeCopied}));
+    return true;
+  }
+  
+  if (history.indexOf(string) == -1) {
+    $(ul).$append(<li .item><span class="clipboard-content">{contents}</span></li>);
+    $(ul).$append(<li .trashcan><span .trashcan-button .material-icons>delete</span></li>);
+    history.push(contents);
+    lastCopiedText = string;
+    updateStorageText();
+    playSound("success.mp3");
+  }
+  return true;
+});
+
+$(.clear) << event click {
+  for (var li in $$(li)) {
+    li.remove();
+  }
+  history.length = 0;
+  updateStorageText();
+  playSound("trash.mp3");
+}
+
+event click $(.trashcan-button) {
+  const items = this.parent.parent.$$(> li);
+  const selfIndex = items.indexOf(this.parent);
+  const prevItem = items[selfIndex - 1];
+  const prevItemText = prevItem.$(span).text;
+  const textIndex = history.indexOf(prevItemText);
+  history.remove(textIndex);
+  prevItem.remove();
+  updateStorageText();
+  this.parent.remove();
+}
+
+event click $(li.item) {
+  lastCopiedText = this.text;
+  view.clipboard(#put, this.text);
+
+  const textIndex = history.indexOf(this.text);
+  const items = $$(li);
+  const selfIndex = items.indexOf(this);
+  const nextItem = items[selfIndex + 1];
+  nextItem.remove();
+
+  $(ul).$prepend(<li .trashcan><span .trashcan-button .material-icons>delete</span></li>);
+  $(ul).$prepend(<li .item><span class="clipboard-content">{this.text}</span></li>);
+
+  playSound("success.mp3");
+
+  this.remove();
+} 
+
+$(toggle(audio)) << event change {
+  audioEnabled = this.value;
+}
+
+$(toggle(clipboard)) << event change {
+  clipboardEnabled = this.value;
+}
+
+$(a#sciter) << event click {
+  const href = this.attributes["href"];
+  Sciter.launch(href);
+  return true;
+};
+
+$(a#clipper) << event click {
+  const href = this.attributes["href"];
+  Sciter.launch(href);
+  return true;
+};
