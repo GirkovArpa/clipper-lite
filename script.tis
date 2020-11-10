@@ -1,4 +1,4 @@
-view.connectToInspector && view.connectToInspector(rootElement, inspectorIpAddress);
+//view.connectToInspector && view.connectToInspector(rootElement, inspectorIpAddress);
 
 $(.title-bar).paintOutline = function (gfx) {
   const emoji = String.fromCharCode(128203);
