@@ -23,7 +23,7 @@ var currentSound = false;
 function playSound(sound) {
   if (!audioEnabled) return;
   if (currentSound != false) return;
-  currentSound = view.audio(sound);
+  currentSound = view.audio(self.url(sound));
   currentSound.play();
   view.root.timer(500ms, function() {
     currentSound = false;
