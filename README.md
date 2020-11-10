@@ -32,7 +32,7 @@ Not only is the filesize a magnitude of order lighter, but it starts up way fast
 
 - ~~Inactive, offscreen popups can be scrolled into view.~~ **Fixed!** Thanks to a pull request from [4silvertooth](https://github.com/4silvertooth).
 
-I would like to emphasize that this is my attempt at a clone, but it's not a port. Since the original Clippy is written in React, a genuine port would utilize Sciter's "Reactor".
+I would like to emphasize that this is my attempt at a clone, but it's not a port. Since the original Clippy is written in React, a genuine port would utilize Sciter's [Reactor](https://sciter.com/developers/sciter-docs/reactor-and-ssx/).
 
 ## Usage
 
