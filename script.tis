@@ -101,7 +101,7 @@ view.root.timer(500ms, function() {
 
   if (string == "") return true;
 
-  const length = $$(li).length > 0 ? $$(li).length / 2 : 0;
+  const length = self.$$(li.item)?.length;
   if (history.indexOf(string) == -1 && length == storageLimit) {
     showStorageExceededPopup("Your storage limit is exceeded!");
     return true;
@@ -132,16 +132,16 @@ $(.clear) << event click {
   playSound("trash.mp3");
 }
 
-event click $(.trashcan-button) {
-  const items = this.parent.parent.$$(> li);
-  const selfIndex = items.indexOf(this.parent);
-  const prevItem = items[selfIndex - 1];
+event click $(.trashcan-button) (evt, span) {
+  const li = span.parent;
+  const items = li.parent.$$(> li);
+  const prevItem = items[li.index - 1];
   const prevItemText = prevItem.$(span).text;
   const textIndex = history.indexOf(prevItemText);
   history.remove(textIndex);
   prevItem.remove();
   updateStorageText();
-  this.parent.remove();
+  li.remove();
 }
 
 event click $(li.item) {
