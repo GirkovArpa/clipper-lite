@@ -81,9 +81,8 @@ button.material-icons:hover {
 div.first-row {
   display: inline-block;
   flow: horizontal;
-  vertical-align: middle;
-  justify-content: space-around;
   margin: 15dip;
+  width: *;
 }
 
 span.storage-limit {
@@ -93,8 +92,10 @@ span.storage-limit {
   font-weight: 400;
   line-height: 1.3;
   width: *;
-  margin-left: 15dip;
-  margin-right: 15dip;
+}
+
+span.storage-limit > b {
+  white-space: nowrap;
 }
 
 a.pseudo-button {
@@ -104,7 +105,6 @@ a.pseudo-button {
   text-decoration: none;
   margin-top: -2dip;
   margin-left: 15dip;
-  margin-right: 15dip;
   border: none;
   border-radius: 2dip;
   display: inline-block;
@@ -171,13 +171,16 @@ ul {
 li {
   width: 100%;
   padding: 10dip 20dip;
-  margin-top: 7.5dip;
-  margin-bottom: 7.5dip;
   transition: box-shadow 250ms;
 }
 
+li+li.item { margin-top: 15dip; }
+
 li.trashcan {
   flow: horizontal;
+  horizontal-align: right;
+  vertical-align-align: top;
+  padding: none;
 }
 
 li.item {
@@ -197,14 +200,12 @@ span.clipboard-content {
 }
 
 span.trashcan-button {
-  width: *;
-  padding-right: 30dip;
-  text-align: right;
+  size: auto;
   color: #C62828;
-  line-height: 15dip;
-  margin: 0;
+  margin-top: 4dip;
   font-size: 27dip;
   cursor: pointer;
+  padding-right: 1dip;
 }
 
 div.footer {
