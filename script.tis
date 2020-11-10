@@ -5,7 +5,7 @@ $(.title-bar).paintOutline = function (gfx) {
   const text = new Graphics.Text(String.$(Clipper {emoji})); 
   text.class = "title";
   // 5 == center
-  gfx.drawText(text, 14, 56 / 2, 4);
+  gfx.drawText(text, 400 / 2, 56 / 2, 5);
 }
 
 const history = [];
@@ -154,7 +154,7 @@ event click $(li.item) {
   const nextItem = items[selfIndex + 1];
   nextItem.remove();
 
-  $(ul).$prepend(<li .trashcan><span .trashcan-button .material-icons></span></li>);
+  $(ul).$prepend(<li .trashcan><span .trashcan-button .material-icons>delete</span></li>);
   $(ul).$prepend(<li .item><span class="clipboard-content">{this.text}</span></li>);
 
   playSound("success.mp3");
