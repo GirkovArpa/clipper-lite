@@ -1,0 +1,43 @@
+/* Copyright © Mladen Plavsic https://github.com/mladenplavsic/css-ripple-effect */
+
+.ripple {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: "";
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  border-radius: 100%;
+  background: rgb(255, 255, 255);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10%, 10%);
+  opacity: 0;
+}
+
+.ripple-1::after {
+  width: 200%;
+  height: 500%;
+  top: -200%;
+  left: -50%;
+  transition: transform 1s, opacity 2s;
+}
+
+.ripple-2::after {
+  width: 400%;
+  height: 500%;
+  top: -200%;
+  left: -150%;
+  transition: transform 2s, opacity 2s;
+}
+
+.ripple:active::after {
+  transform: scale(0, 0);
+  opacity: .75;
+  transition: 0s;
+}

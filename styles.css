@@ -94,7 +94,7 @@ span.storage-limit {
   width: *;
 }
 
-span.storage-limit > b {
+span.storage-limit>b {
   white-space: nowrap;
 }
 
@@ -174,7 +174,9 @@ li {
   transition: box-shadow 250ms;
 }
 
-li+li.item { margin-top: 15dip; }
+li+li.item {
+  margin-top: 15dip;
+}
 
 li.trashcan {
   flow: horizontal;
@@ -346,3 +348,4 @@ a.close:active {
 a.close:focus:not(:active) {
   background-color: #E1E1E1;
 }
+

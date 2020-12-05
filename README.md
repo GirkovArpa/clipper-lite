@@ -24,7 +24,7 @@ Not only is the filesize over a magnitude of order lighter, but it starts up way
 
 ## Caveats
 
-- I haven't implemented the button click waves effect from the [Materialize](https://materializecss.com/waves.html) CSS library (yet).
+- ~~I haven't implemented the button click waves effect from the [Materialize](https://materializecss.com/waves.html) CSS library (yet).~~ **Done!** Using [this](https://github.com/mladenplavsic/css-ripple-effect), which is quite similar even though not exactly the same.
 
 - I haven't implemented the tray icon (yet).
 
