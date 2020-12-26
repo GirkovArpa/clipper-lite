@@ -1,13 +1,5 @@
 //view.connectToInspector && view.connectToInspector(rootElement, inspectorIpAddress);
 
-$(.title-bar).paintOutline = function (gfx) {
-  const emoji = String.fromCharCode(128203);
-  const text = new Graphics.Text(String.$(Clipper {emoji})); 
-  text.class = "title";
-  // 5 == center
-  gfx.drawText(text, 400 / 2, 56 / 2, 5);
-}
-
 const history = [];
 const storageLimit = 10;
 const maxCharsThatCanBeCopied = 500;

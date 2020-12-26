@@ -47,7 +47,9 @@ div.title-bar {
   box-shadow: 0 2dip 2dip 0 rgba(0, 0, 0, 0.2), 0 3dip 1dip 0dip rgba(0, 0, 0, 0.12), 0 0dip 50dip 0 rgba(0, 0, 0, 0.2);
 }
 
-text.title {
+.title {
+  hit-margin: -32dip;
+  position: absolute;
   color: white;
   font-size: 32dip;
   line-height: 56dip;
@@ -348,4 +350,3 @@ a.close:active {
 a.close:focus:not(:active) {
   background-color: #E1E1E1;
 }
-
