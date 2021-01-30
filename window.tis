@@ -7,7 +7,7 @@ function self.ready() {
 
   view.trayIcon {
     image: this.loadImage(self.url("icon@2x.png")),
-    text: "Clipper"
+    text: "Click to access Clipper"
   };
  
   view << event trayicon-click (evt) { 
