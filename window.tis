@@ -4,4 +4,16 @@ function self.ready() {
   const (sw, sh) = view.screenBox(#workarea, #dimension);
   view.move(sw - w, sh - h, w, h, true);
   view.windowResizable = false;
+
+  view.trayIcon {
+    image: this.loadImage(self.url("icon@2x.png")),
+    text: "Click to access Clipper"
+  };
+ 
+  view << event trayicon-click (evt) { 
+    if(evt.buttons == 1) {
+      view.windowState = view.windowState == View.WINDOW_SHOWN ? View.WINDOW_HIDDEN : View.WINDOW_SHOWN;
+    }                
+  }
+
 }
